@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.text-ds-gray-1000 {
+  color: var(--ds-gray-1000);
+}
+
+:root {
+  --text-color: 255, 255, 255; /* Blanco */
+  --cta-color: 128, 0, 128; /* Violeta */
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: 255, 255, 255;
+    --cta-color: 128, 0, 128;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--text-color));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+button,
+.cta {
+  color: rgb(var(--text-color));
+  background-color: rgb(var(--cta-color));
+}
+
+.rotate-lg-6 {
+  transition: transform 0.3s ease-in-out;
+}
+
+.image-container:hover .rotate-lg-6 {
+  transform: rotate(6deg);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+:root {
+  --font-geist-sans: "Geist UI Sans", sans-serif;
+  --font-geist-mono: "Geist UI Mono", monospace;
+}
+
+.font-geist-sans {
+  font-family: var(--font-geist-sans);
+}
+
+.card {
+  width: 100%;
+  height: fit-content;
+  transition: all 0.2s;
+  position: relative;
+  cursor: pointer;
+}
+
+.card-inner {
+  width: inherit;
+  height: inherit;
+  background: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+}
+
+.card:hover {
+  transform: scale(1.04) rotate(0.2deg);
+}
+
+.circle {
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(#7f4cbd, #393bb2);
+  border-radius: 50%;
+  position: absolute;
+  animation: move-up6 3s ease-in infinite alternate-reverse;
+}
+
+.especial-circle {
+  width: 75px;
+  height: 75px;
+  background: #ffc759;
+  border-radius: 50%;
+  position: absolute;
+  animation: move-up6 3s ease-in infinite alternate-reverse;
+}
+
+.circle:nth-child(1) {
+  top: -25px;
+  left: -25px;
+}
+
+.circle:nth-child(2) {
+  bottom: -25px;
+  right: -25px;
+  animation-name: move-down1;
+}
+.especial-circle:nth-child(1) {
+  top: -25px;
+  left: -25px;
+}
+
+.especial-circle:nth-child(2) {
+  bottom: -25px;
+  right: -25px;
+  animation-name: move-up0;
+}
+
+@keyframes move-up6 {
+  to {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes move-down1 {
+  to {
+    transform: translateY(5px);
+  }
+}
